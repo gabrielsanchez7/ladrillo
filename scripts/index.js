@@ -6,7 +6,7 @@ const preloadingAnimations = () => {
   setTimeout(() => textPreloading.style.animation = 'textPreloading forwards 0.7s', 950)
 }
 
-// preloadingAnimations()
+preloadingAnimations()
 
 const slidesAnimation = () => {
   const slides = document.getElementById('slides')
@@ -54,7 +54,7 @@ const slidesAnimation = () => {
   }, 2000)
 }
 
-// slidesAnimation()
+slidesAnimation()
 
 const bannersAnimation = () => {
 
@@ -85,11 +85,11 @@ const bannersAnimation = () => {
 }
 
 // Temporal
-const page = document.getElementById('page')
-const fullBox = document.getElementById('full-box')
-fullBox.style.display = 'none'
-page.style.display = 'block'
-bannersAnimation()
+// const page = document.getElementById('page')
+// const fullBox = document.getElementById('full-box')
+// fullBox.style.display = 'none'
+// page.style.display = 'block'
+// bannersAnimation()
 // Temporal
 
 const checkZone = () => {
