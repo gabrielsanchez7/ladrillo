@@ -6,7 +6,7 @@ const preloadingAnimations = () => {
   setTimeout(() => textPreloading.style.animation = 'textPreloading forwards 0.7s', 950)
 }
 
-preloadingAnimations()
+// preloadingAnimations()
 
 const slidesAnimation = () => {
   const slides = document.getElementById('slides')
@@ -54,7 +54,7 @@ const slidesAnimation = () => {
   }, 2000)
 }
 
-slidesAnimation()
+// slidesAnimation()
 
 const bannersAnimation = () => {
 
@@ -85,19 +85,18 @@ const bannersAnimation = () => {
 }
 
 // Temporal
-// const page = document.getElementById('page')
-// const fullBox = document.getElementById('full-box')
-// fullBox.style.display = 'none'
-// page.style.display = 'block'
-// bannersAnimation()
+const page = document.getElementById('page')
+const fullBox = document.getElementById('full-box')
+fullBox.style.display = 'none'
+page.style.display = 'block'
+bannersAnimation()
 // Temporal
 
 const checkZone = () => {
   const viewportHeight = window.innerHeight
   const scrollTop = window.scrollY
   const contactButton = document.querySelector('#page .contact')
-
-  if(scrollTop > viewportHeight) { contactButton.classList.add('black') }
+  if(scrollTop >= viewportHeight) { contactButton.classList.add('black') }
   else { contactButton.classList.remove('black') }
 }
 
@@ -111,4 +110,5 @@ const arrowDown = document.querySelector('#arrow-down')
 arrowDown.addEventListener('click', () => {
   const positionAboutUs = document.querySelector('#ladrillo').offsetTop
   window.scroll(0, positionAboutUs)
+  setTimeout(checkZone, 2000)
 })

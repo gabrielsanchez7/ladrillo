@@ -162,14 +162,14 @@ html, body {
         position: fixed;
         top: 50px;
         right: 50px;
-        line-height: 48px;
+        line-height: 68px;
         border: 2px solid rgba(255,255,255,0.4);
-        padding: 0 30px;
+        padding: 0 50px;
         color: white;
-        font-size: 12px;
+        font-size: 16px;
         font-weight: bold;
         text-transform: uppercase;
-        border-radius: 25px;
+        border-radius: 35px;
         text-decoration: none;
         letter-spacing: 1px;
         transition: background-color 0.25s, border-color 0.25s, color 0.25s;
@@ -281,7 +281,7 @@ html, body {
       max-width: 70vw;
       margin: auto;
       height: 100%;
-      padding: 10vw 15px;
+      padding: 8vw 15px;
       .title {
         font-family: $fontTitle;
         font-size: 8vw;
@@ -316,6 +316,42 @@ html, body {
     @media screen and (max-width: 1024px) {
       & > div {
         .title { font-size: 90px; }
+      }
+    }
+  }
+  #process {
+    height: 100vh;
+    display: flex;
+    position: relative;
+    .proc {
+      min-width: 100vw;
+      background-size: cover;
+      background-position: center;
+      padding: 20vh 20vw;
+      position: absolute;
+      height: 100%;
+      left: 100%;
+      &.process1 { background-image: url(../images/process1.jpg); }
+      &.process2 { background-image: url(../images/process2.jpg); }
+      &.active { left: 0; }
+      &.pass { left: -100%; }
+      .content {
+        background-color: white;
+        padding: 100px 70px 70px;
+        max-width: 30vw;
+        strong {
+          font-family: $fontTitle;
+          font-size: 1.2vw;
+          margin-bottom: 20px;
+          display: block;
+        }
+        p {
+          font-size: 18px;
+          letter-spacing: 0.5px;
+          line-height: 28px;
+          color: rgba(0, 0, 0, 0.75);
+          &:not(:last-child) { margin-bottom: 15px; }
+        }
       }
     }
   }
