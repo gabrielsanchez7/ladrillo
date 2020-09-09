@@ -6,7 +6,7 @@ const preloadingAnimations = () => {
   setTimeout(() => textPreloading.style.animation = 'textPreloading forwards 0.7s', 950)
 }
 
-preloadingAnimations()
+// preloadingAnimations()
 
 const slidesAnimation = () => {
   const slides = document.getElementById('slides')
@@ -54,7 +54,7 @@ const slidesAnimation = () => {
   }, 2000)
 }
 
-slidesAnimation()
+// slidesAnimation()
 
 const bannersAnimation = () => {
 
@@ -85,11 +85,11 @@ const bannersAnimation = () => {
 }
 
 // Temporal
-// const page = document.getElementById('page')
-// const fullBox = document.getElementById('full-box')
-// fullBox.style.display = 'none'
-// page.style.display = 'block'
-// bannersAnimation()
+const page = document.getElementById('page')
+const fullBox = document.getElementById('full-box')
+fullBox.style.display = 'none'
+page.style.display = 'block'
+bannersAnimation()
 // Temporal
 
 const checkZone = () => {
@@ -111,4 +111,32 @@ arrowDown.addEventListener('click', () => {
   const positionAboutUs = document.querySelector('#ladrillo').offsetTop
   window.scroll(0, positionAboutUs)
   setTimeout(checkZone, 2000)
+})
+
+const processArrows = document.querySelectorAll('.arrow')
+Array.from(processArrows, arrow => {
+  arrow.addEventListener('click', e => {
+    const allProcess = document.querySelectorAll('#process .proc')
+    const currentIndex = Array.from(allProcess).indexOf(document.querySelector('#process .active'))
+    const currentProc = allProcess[currentIndex]
+    const t = e.target
+    if(t.classList.contains('prev') && currentIndex > 0) {
+      currentProc.classList.remove('active')
+      currentProc.previousElementSibling.classList.remove('pass')
+      currentProc.previousElementSibling.classList.add('active')
+      processArrows[1].classList.remove('disabled')
+      if(currentIndex == 1) {
+        processArrows[0].classList.add('disabled')
+      }
+    }
+    else if(t.classList.contains('next') && currentIndex < allProcess.length - 1) {
+      currentProc.classList.remove('active')
+      currentProc.classList.add('pass')
+      currentProc.nextElementSibling.classList.add('active')
+      processArrows[0].classList.remove('disabled')
+      if(currentIndex == allProcess.length - 2) {
+        processArrows[1].classList.add('disabled')
+      }
+    }
+  })
 })

@@ -160,6 +160,7 @@ html, body {
       }
       .contact {
         position: fixed;
+        z-index: 1;
         top: 50px;
         right: 50px;
         line-height: 68px;
@@ -323,6 +324,49 @@ html, body {
     height: 100vh;
     display: flex;
     position: relative;
+    .arrow {
+      position: absolute;
+      height: 3.5vw;
+      width: 3.5vw;
+      background-color: white;
+      border-radius: 50%;
+      z-index: 1;
+      border: none;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      outline: none;
+      top: calc(50% - (3.5vw / 2));
+      box-shadow: 0 0 1vw 0 rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: $fast;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.prev { left: 7vw; }
+      &.next { right: 7vw; }
+      i {
+        pointer-events: none;
+        font-size: 0.75vw;
+        transition: $fast;
+        opacity: 0.5;
+      }
+      @media (hover : hover) {
+        &:hover {
+          transform: scale(0.9);
+          i { opacity: 1; }
+          &.prev i { transform: translateX(-5px) scale(1.1); }
+          &.next i { transform: translateX(5px) scale(1.1); }
+        }
+      }
+      &:active {
+        transform: translateY(3px) scale(0.9);
+      }
+      &.disabled {
+        pointer-events: none;
+        opacity: 0.6;
+      }
+    }
     .proc {
       min-width: 100vw;
       background-size: cover;
@@ -331,24 +375,26 @@ html, body {
       position: absolute;
       height: 100%;
       left: 100%;
+      transition: 1s ease-in-out;
       &.process1 { background-image: url(../images/process1.jpg); }
       &.process2 { background-image: url(../images/process2.jpg); }
+      &.process3 { background-image: url(../images/process3.jpg); }
       &.active { left: 0; }
-      &.pass { left: -100%; }
+      &.pass { left: -100vw; }
       .content {
         background-color: white;
         padding: 100px 70px 70px;
         max-width: 30vw;
         strong {
           font-family: $fontTitle;
-          font-size: 1.2vw;
-          margin-bottom: 20px;
+          font-size: 2vw;
+          margin-bottom: 1.5vw;
           display: block;
         }
         p {
-          font-size: 18px;
+          font-size: 0.8vw;
           letter-spacing: 0.5px;
-          line-height: 28px;
+          line-height: 1.3vw;
           color: rgba(0, 0, 0, 0.75);
           &:not(:last-child) { margin-bottom: 15px; }
         }

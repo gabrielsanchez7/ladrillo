@@ -211,6 +211,7 @@ html, body {
 }
 #page #banners .layer .contact {
   position: fixed;
+  z-index: 1;
   top: 50px;
   right: 50px;
   line-height: 68px;
@@ -383,6 +384,59 @@ html, body {
   display: flex;
   position: relative;
 }
+#page #process .arrow {
+  position: absolute;
+  height: 3.5vw;
+  width: 3.5vw;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  top: calc(50% - (3.5vw / 2));
+  box-shadow: 0 0 1vw 0 rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#page #process .arrow.prev {
+  left: 7vw;
+}
+#page #process .arrow.next {
+  right: 7vw;
+}
+#page #process .arrow i {
+  pointer-events: none;
+  font-size: 0.75vw;
+  transition: 0.25s;
+  opacity: 0.5;
+}
+@media (hover: hover) {
+  #page #process .arrow:hover {
+    transform: scale(0.9);
+  }
+  #page #process .arrow:hover i {
+    opacity: 1;
+  }
+  #page #process .arrow:hover.prev i {
+    transform: translateX(-5px) scale(1.1);
+  }
+  #page #process .arrow:hover.next i {
+    transform: translateX(5px) scale(1.1);
+  }
+}
+#page #process .arrow:active {
+  transform: translateY(3px) scale(0.9);
+}
+#page #process .arrow.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
 #page #process .proc {
   min-width: 100vw;
   background-size: cover;
@@ -391,6 +445,7 @@ html, body {
   position: absolute;
   height: 100%;
   left: 100%;
+  transition: 1s ease-in-out;
 }
 #page #process .proc.process1 {
   background-image: url(../images/process1.jpg);
@@ -398,11 +453,14 @@ html, body {
 #page #process .proc.process2 {
   background-image: url(../images/process2.jpg);
 }
+#page #process .proc.process3 {
+  background-image: url(../images/process3.jpg);
+}
 #page #process .proc.active {
   left: 0;
 }
 #page #process .proc.pass {
-  left: -100%;
+  left: -100vw;
 }
 #page #process .proc .content {
   background-color: white;
@@ -411,14 +469,14 @@ html, body {
 }
 #page #process .proc .content strong {
   font-family: "Circular", sans-serif;
-  font-size: 1.2vw;
-  margin-bottom: 20px;
+  font-size: 2vw;
+  margin-bottom: 1.5vw;
   display: block;
 }
 #page #process .proc .content p {
-  font-size: 18px;
+  font-size: 0.8vw;
   letter-spacing: 0.5px;
-  line-height: 28px;
+  line-height: 1.3vw;
   color: rgba(0, 0, 0, 0.75);
 }
 #page #process .proc .content p:not(:last-child) {
