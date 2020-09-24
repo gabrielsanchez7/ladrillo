@@ -24,12 +24,6 @@
   font-family: "Graphik", sans-serif;
 }
 
-html, body {
-  overflow-x: hidden;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-}
-
 #full-box {
   height: 100vh;
   width: 100vw;
@@ -54,8 +48,8 @@ html, body {
 }
 #pre-loading .logo {
   display: block;
-  width: 70px;
-  height: 85px;
+  width: 130px;
+  height: 161px;
   overflow: hidden;
   position: relative;
   margin-bottom: 10px;
@@ -138,8 +132,8 @@ html, body {
 }
 #slides .image {
   position: absolute;
-  width: 80vh;
-  height: 80vh;
+  width: 90vh;
+  height: 90vh;
 }
 #slides .image .box {
   max-height: 0;
@@ -175,7 +169,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
 }
@@ -185,7 +179,7 @@ html, body {
   left: 0;
   opacity: 0;
   transition: 3s linear;
-  min-width: 100vw;
+  min-width: 100%;
   height: 100vh;
   overflow: hidden;
   background-repeat: no-repeat;
@@ -200,7 +194,7 @@ html, body {
   background-color: rgba(0, 0, 0, 0.85);
   position: absolute;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: 100%;
 }
 #page #banners .layer .logo {
@@ -214,14 +208,14 @@ html, body {
   z-index: 1;
   top: 50px;
   right: 50px;
-  line-height: 68px;
+  line-height: 6.5vh;
   border: 2px solid rgba(255, 255, 255, 0.4);
   padding: 0 50px;
   color: white;
-  font-size: 16px;
+  font-size: 1.4vh;
   font-weight: bold;
   text-transform: uppercase;
-  border-radius: 35px;
+  border-radius: 6vh;
   text-decoration: none;
   letter-spacing: 1px;
   transition: background-color 0.25s, border-color 0.25s, color 0.25s;
@@ -274,30 +268,16 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 70vw;
+  max-width: 75vw;
   height: 100vh;
   padding-bottom: 15vh;
 }
-#page #banners .message p:first-child {
+#page #banners .message p {
   font-family: "Circular", sans-serif;
-  font-size: 3vw;
+  font-size: 3.2vw;
   color: white;
   text-shadow: 0px 0.1vw 0.15vw rgba(0, 0, 0, 0.4);
   margin-bottom: 15px;
-}
-#page #banners .message p:last-child {
-  font-size: 1vw;
-  color: white;
-  text-shadow: 0px 0.05vw 0.1vw rgba(0, 0, 0, 0.4);
-}
-#page #banners .message p:last-child::before {
-  content: "";
-  display: inline-block;
-  width: 80px;
-  height: 1px;
-  background-color: white;
-  vertical-align: middle;
-  margin-right: 10px;
 }
 #page #menu {
   display: flex;
@@ -308,8 +288,8 @@ html, body {
   top: calc(50% - 90px);
   left: 0;
   background-color: white;
-  padding: 10px;
   cursor: pointer;
+  z-index: 1;
 }
 #page #menu .image {
   max-width: 40px;
@@ -331,8 +311,8 @@ html, body {
   font-size: 14px;
 }
 #page #ladrillo {
-  height: calc(100vh + 20vh);
-  width: 100vw;
+  height: calc(100vh + 40vh);
+  width: 100%;
   background-image: url(../images/slide2.jpg);
   background-repeat: no-repeat;
   background-position: right center;
@@ -346,9 +326,9 @@ html, body {
 }
 #page #ladrillo > div .title {
   font-family: "Circular", sans-serif;
-  font-size: 8vw;
-  font-weight: bold;
-  margin-bottom: 30vh;
+  font-size: 13vw;
+  line-height: 12vw;
+  margin-bottom: 20vh;
 }
 #page #ladrillo > div .mission strong {
   text-transform: uppercase;
@@ -383,6 +363,7 @@ html, body {
   height: 100vh;
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 #page #process .arrow {
   position: absolute;
@@ -424,10 +405,10 @@ html, body {
     opacity: 1;
   }
   #page #process .arrow:hover.prev i {
-    transform: translateX(-5px) scale(1.1);
+    transform: translateX(-3px) scale(1.1);
   }
   #page #process .arrow:hover.next i {
-    transform: translateX(5px) scale(1.1);
+    transform: translateX(3px) scale(1.1);
   }
 }
 #page #process .arrow:active {
@@ -438,14 +419,16 @@ html, body {
   opacity: 0.6;
 }
 #page #process .proc {
-  min-width: 100vw;
+  min-width: 100%;
   background-size: cover;
   background-position: center;
-  padding: 20vh 20vw;
+  padding: 5vh 20vw;
   position: absolute;
   height: 100%;
   left: 100%;
   transition: 1s ease-in-out;
+  display: flex;
+  align-items: center;
 }
 #page #process .proc.process1 {
   background-image: url(../images/process1.jpg);
@@ -464,23 +447,234 @@ html, body {
 }
 #page #process .proc .content {
   background-color: white;
-  padding: 100px 70px 70px;
-  max-width: 30vw;
+  padding: 5vw;
+  max-width: 35vw;
+  height: 75vh;
+  overflow: auto;
 }
 #page #process .proc .content strong {
   font-family: "Circular", sans-serif;
-  font-size: 2vw;
+  font-size: 2.2vw;
+  font-weight: normal;
   margin-bottom: 1.5vw;
   display: block;
 }
 #page #process .proc .content p {
-  font-size: 0.8vw;
+  font-size: 1vw;
+  font-family: "Graphik", sans-serif;
   letter-spacing: 0.5px;
-  line-height: 1.3vw;
-  color: rgba(0, 0, 0, 0.75);
+  line-height: 1.6vw;
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.5);
 }
 #page #process .proc .content p:not(:last-child) {
   margin-bottom: 15px;
+}
+#page #process .proc .content::-webkit-scrollbar {
+  width: 10px;
+}
+#page #process .proc .content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+#page #process .proc .content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+}
+#page #projects {
+  height: 100vh;
+  display: flex;
+  position: relative;
+  background: linear-gradient(-90deg, #0f0f0f 50%, #1a1a1a 100%);
+}
+#page #projects::after {
+  content: "";
+  background: linear-gradient(-90deg, #0f0f0f 50%, #1a1a1a 100%);
+  height: 15vh;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+}
+#page #projects .content {
+  background-image: url(../images/projects.jpg);
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: contain;
+  width: 100%;
+  max-width: 70vw;
+  height: 65vh;
+  margin: auto;
+  padding: 5vh 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#page #projects .content h2 {
+  color: white;
+  font-family: "Circular", sans-serif;
+  font-size: 13vw;
+  font-weight: lighter;
+}
+#page #projects .content p {
+  max-width: 50%;
+  margin-top: 10px;
+  font-size: 1.2vw;
+  line-height: 1.5vw;
+  color: rgba(255, 255, 255, 0.5);
+}
+#page #video {
+  height: 100vh;
+  display: flex;
+  position: relative;
+  width: 85vw;
+  background-color: #edab27;
+  justify-content: center;
+  align-items: center;
+}
+#page #video .content {
+  max-width: 70vw;
+  width: 100%;
+  color: white;
+}
+#page #video .content video {
+  min-width: 60%;
+  margin-right: 5%;
+}
+#page #video .content .flex {
+  display: flex;
+  margin-bottom: 5vh;
+}
+#page #video .content .flex p {
+  font-family: "Circular", sans-serif;
+  font-size: 1.5vw;
+  padding: 3vh 0;
+  border-bottom: 2px solid white;
+}
+#page #video .content > div:not(.flex) p:first-child {
+  font-family: "Circular", sans-serif;
+  font-size: 2vw;
+  padding-bottom: 1vh;
+  font-weight: bold;
+}
+#page #video .content > div:not(.flex) p:last-child {
+  font-family: "Circular", sans-serif;
+  font-size: 0.8vw;
+  letter-spacing: 0.15vw;
+  text-transform: uppercase;
+}
+#page #connect {
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(-90deg, #0f0f0f 50%, #1a1a1a 100%);
+}
+#page #connect .content {
+  width: 100%;
+  max-width: 70vw;
+  margin: auto;
+  padding: 20vh 0;
+}
+#page #connect .content h2 {
+  color: white;
+  font-family: "Circular", sans-serif;
+  font-size: 10vw;
+  font-weight: lighter;
+  margin-bottom: 10vh;
+}
+#page #connect .content > p {
+  max-width: 80%;
+  margin-top: 10px;
+  font-size: 1.2vw;
+  line-height: 1.5vw;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 1vh 0;
+}
+#page #connect .content .flex {
+  margin-top: 5vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+#page #connect .content .flex form {
+  width: 50%;
+  margin-right: 5vw;
+  padding-right: 5vw;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+#page #connect .content .flex form input[type=text], #page #connect .content .flex form select, #page #connect .content .flex form textarea {
+  display: block;
+  width: 100%;
+  height: 70px;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+  margin-bottom: 20px;
+  outline: none;
+  color: white;
+  font-size: 17px;
+  resize: none;
+}
+#page #connect .content .flex form input[type=text]::placeholder, #page #connect .content .flex form select::placeholder, #page #connect .content .flex form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+#page #connect .content .flex form input[type=text]:focus, #page #connect .content .flex form select:focus, #page #connect .content .flex form textarea:focus {
+  border-color: white;
+}
+#page #connect .content .flex form input[type=text] option, #page #connect .content .flex form select option, #page #connect .content .flex form textarea option {
+  color: black;
+  margin: 50px 0;
+}
+#page #connect .content .flex form textarea {
+  margin-bottom: 50px;
+  height: 100px;
+  padding-top: 10px;
+}
+#page #connect .content .flex form button {
+  line-height: 70px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 0 70px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 6vh;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+  background-color: transparent;
+  cursor: pointer;
+}
+#page #connect .content .flex form button:hover {
+  background-color: white;
+  border-color: white;
+  color: black;
+}
+#page #connect .content .flex form button:active {
+  transform: translateY(1px);
+}
+#page #connect .content .flex > div {
+  width: 50%;
+}
+#page #connect .content .flex > div p, #page #connect .content .flex > div a {
+  max-width: 80%;
+  margin-top: 10px;
+  font-size: 1.2vw;
+  line-height: 1.5vw;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 1vh 0;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+}
+#page #connect .content .flex > div p img, #page #connect .content .flex > div a img {
+  width: 50px;
+  margin-right: 20px;
+}
+#page #connect .content .flex > div a {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=index.css.map */
