@@ -102,8 +102,6 @@ const checkZone = () => {
   else if(scroll > size * 2 && scroll <= (size * 4 + size * 0.4)) { currentZone = 'ladrillo' }
   else { currentZone = 'projects' }
 
-  console.log(scroll, size * 4 + size * 0.4, currentZone)
-
   const contactButton = document.querySelector('#page .contact')
   if(['hero', 'projects'].includes(currentZone)) { contactButton.classList.remove('black') }
   else { contactButton.classList.add('black') }
@@ -154,14 +152,9 @@ Array.from(processArrows, arrow => {
   })
 })
 
-
-
-// const hero = document.getElementById('banners')
-// const hello = document.getElementById('ladrillo')
-// const process = document.getElementById('process')
-
-// window.addEventListener('scroll', e => {
-//   if(currentZone == 'hero') { hello.scrollIntoView() }
-//   else if(currentZone == 'hello') { hello.scrollIntoView() }
-//   else { process.scrollIntoView() }
-// })
+const contactButton = document.getElementById('contact')
+contactButton.addEventListener('click', e => {
+  e.preventDefault()
+  const contactZone = document.getElementById('connect')
+  window.scroll({ top: contactZone.offsetTop, behavior: 'smooth' })
+})

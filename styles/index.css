@@ -359,13 +359,13 @@
     font-size: 90px;
   }
 }
-#page #process {
+#page #us {
   height: 100vh;
   display: flex;
   position: relative;
   overflow: hidden;
 }
-#page #process .arrow {
+#page #us .arrow {
   position: absolute;
   height: 3.5vw;
   width: 3.5vw;
@@ -385,40 +385,40 @@
   align-items: center;
   justify-content: center;
 }
-#page #process .arrow.prev {
+#page #us .arrow.prev {
   left: 7vw;
 }
-#page #process .arrow.next {
+#page #us .arrow.next {
   right: 7vw;
 }
-#page #process .arrow i {
+#page #us .arrow i {
   pointer-events: none;
   font-size: 0.75vw;
   transition: 0.25s;
   opacity: 0.5;
 }
 @media (hover: hover) {
-  #page #process .arrow:hover {
+  #page #us .arrow:hover {
     transform: scale(0.9);
   }
-  #page #process .arrow:hover i {
+  #page #us .arrow:hover i {
     opacity: 1;
   }
-  #page #process .arrow:hover.prev i {
+  #page #us .arrow:hover.prev i {
     transform: translateX(-3px) scale(1.1);
   }
-  #page #process .arrow:hover.next i {
+  #page #us .arrow:hover.next i {
     transform: translateX(3px) scale(1.1);
   }
 }
-#page #process .arrow:active {
+#page #us .arrow:active {
   transform: translateY(3px) scale(0.9);
 }
-#page #process .arrow.disabled {
+#page #us .arrow.disabled {
   pointer-events: none;
   opacity: 0.6;
 }
-#page #process .proc {
+#page #us .u {
   min-width: 100%;
   background-size: cover;
   background-position: center;
@@ -430,36 +430,36 @@
   display: flex;
   align-items: center;
 }
-#page #process .proc.process1 {
+#page #us .u.us1 {
   background-image: url(../images/process1.jpg);
 }
-#page #process .proc.process2 {
+#page #us .u.us2 {
   background-image: url(../images/process2.jpg);
 }
-#page #process .proc.process3 {
+#page #us .u.us3 {
   background-image: url(../images/process3.jpg);
 }
-#page #process .proc.active {
+#page #us .u.active {
   left: 0;
 }
-#page #process .proc.pass {
+#page #us .u.pass {
   left: -100vw;
 }
-#page #process .proc .content {
+#page #us .u .content {
   background-color: white;
   padding: 5vw;
   max-width: 35vw;
   height: 75vh;
   overflow: auto;
 }
-#page #process .proc .content strong {
+#page #us .u .content strong {
   font-family: "Circular", sans-serif;
   font-size: 2.2vw;
   font-weight: normal;
   margin-bottom: 1.5vw;
   display: block;
 }
-#page #process .proc .content p {
+#page #us .u .content p {
   font-size: 1vw;
   font-family: "Graphik", sans-serif;
   letter-spacing: 0.5px;
@@ -467,18 +467,127 @@
   font-weight: lighter;
   color: rgba(0, 0, 0, 0.5);
 }
-#page #process .proc .content p:not(:last-child) {
+#page #us .u .content p:not(:last-child) {
   margin-bottom: 15px;
 }
-#page #process .proc .content::-webkit-scrollbar {
+#page #us .u .content::-webkit-scrollbar {
   width: 10px;
 }
-#page #process .proc .content::-webkit-scrollbar-track {
+#page #us .u .content::-webkit-scrollbar-track {
   background-color: transparent;
 }
-#page #process .proc .content::-webkit-scrollbar-thumb {
+#page #us .u .content::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 5px;
+}
+#page #process {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#page #process .content {
+  max-width: 70vw;
+  width: 100%;
+  height: 65vh;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+#page #process .content img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30vw;
+  clip-path: polygon(50% 0, 100% 50%, 100% 100%, 50% 50%, 0 100%, 0% 50%);
+}
+#page #process .content > div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#page #process .content > div h2 {
+  font-family: "Circular", sans-serif;
+  font-size: 10vw;
+  line-height: 9vw;
+  font-weight: lighter;
+}
+#page #process .content > div p {
+  font-size: 1.2vw;
+  color: rgba(0, 0, 0, 0.7);
+  padding: 1vh 0;
+  margin: 4vh 0;
+}
+#page #process .content > div button {
+  line-height: 6.5vh;
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  padding: 0 50px;
+  color: black;
+  font-size: 1.4vh;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 6vh;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+#page #process .content > div button:hover {
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+#page #process .content > div button:active {
+  transform: translateY(1px);
+}
+#page #proc1, #page #proc2, #page #proc3, #page #proc4 {
+  min-height: 100vh;
+  background: linear-gradient(-90deg, #0f0f0f 50%, #1a1a1a 100%);
+  display: flex;
+}
+#page #proc1 .content, #page #proc2 .content, #page #proc3 .content, #page #proc4 .content {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#page #proc1 .content > div, #page #proc2 .content > div, #page #proc3 .content > div, #page #proc4 .content > div {
+  width: 50%;
+}
+#page #proc1 .content > div h2, #page #proc2 .content > div h2, #page #proc3 .content > div h2, #page #proc4 .content > div h2 {
+  color: white;
+  font-size: 2.4vw;
+  font-family: "Circular", sans-serif;
+  font-weight: normal;
+  margin-bottom: 3vh;
+}
+#page #proc1 .content > div p, #page #proc2 .content > div p, #page #proc3 .content > div p, #page #proc4 .content > div p {
+  font-size: 1.38vw;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.5);
+}
+#page #proc1 .image, #page #proc2 .image, #page #proc3 .image, #page #proc4 .image {
+  width: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#page #proc1 .image {
+  background-image: url("../images/pr1.png");
+}
+#page #proc2 .image {
+  background-image: url("../images/pr2.jpg");
+}
+#page #proc3 .image {
+  background-image: url("../images/pr3.jpg");
+}
+#page #proc4 .image {
+  background-image: url("../images/pr4.jpg");
 }
 #page #projects {
   height: 100vh;
@@ -535,19 +644,22 @@
   width: 100%;
   color: white;
 }
-#page #video .content video {
-  min-width: 60%;
-  margin-right: 5%;
-}
 #page #video .content .flex {
   display: flex;
   margin-bottom: 5vh;
 }
-#page #video .content .flex p {
+#page #video .content .flex video {
+  min-width: 60%;
+  margin-right: 5%;
+}
+#page #video .content .flex > div {
+  padding-top: 3vh;
+}
+#page #video .content .flex > div p {
   font-family: "Circular", sans-serif;
   font-size: 1.5vw;
-  padding: 3vh 0;
-  border-bottom: 2px solid white;
+  padding: 2vh 0;
+  border-bottom: 1px solid white;
 }
 #page #video .content > div:not(.flex) p:first-child {
   font-family: "Circular", sans-serif;
@@ -628,11 +740,11 @@
   padding-top: 10px;
 }
 #page #connect .content .flex form button {
-  line-height: 70px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  padding: 0 70px;
+  line-height: 6.5vh;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 0 50px;
   color: white;
-  font-size: 15px;
+  font-size: 1.4vh;
   font-weight: bold;
   text-transform: uppercase;
   border-radius: 6vh;
@@ -641,6 +753,7 @@
   transition: background-color 0.25s, border-color 0.25s, color 0.25s;
   background-color: transparent;
   cursor: pointer;
+  outline: none;
 }
 #page #connect .content .flex form button:hover {
   background-color: white;
@@ -652,6 +765,7 @@
 }
 #page #connect .content .flex > div {
   width: 50%;
+  padding-top: 7vh;
 }
 #page #connect .content .flex > div p, #page #connect .content .flex > div a {
   max-width: 80%;
@@ -662,19 +776,17 @@
   padding: 1vh 0;
   display: flex;
   align-items: center;
-  background-color: transparent;
-  border: none;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  outline: none;
 }
 #page #connect .content .flex > div p img, #page #connect .content .flex > div a img {
-  width: 50px;
+  width: 35px;
   margin-right: 20px;
 }
 #page #connect .content .flex > div a {
+  outline: none;
+  text-decoration: none;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=index.css.map */
