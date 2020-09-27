@@ -92,43 +92,48 @@ const bannersAnimation = () => {
 // bannersAnimation()
 // Temporal
 
-const checkZone = () => {
-  let currentZone = 'hero'
-  const scroll = window.scrollY
-  const size = window.innerHeight
+const checkZone = (offset) => {
 
-  if(scroll >= 0 && scroll <= size) { currentZone = 'hero' }
-  else if(scroll > size && scroll <= size * 2) { currentZone = 'hello' }
-  else if(scroll > size * 2 && scroll <= (size * 4 + size * 0.4)) { currentZone = 'ladrillo' }
-  else { currentZone = 'projects' }
+  const sections = document.querySelectorAll('.section')
+  Array.from(sections, (element, index) => {
+    const top = element.offsetTop
+    const elementBottom = top + element.clientHeight
+    let hash
 
-  const contactButton = document.querySelector('#page .contact')
-  if(['hero', 'projects'].includes(currentZone)) { contactButton.classList.remove('black') }
-  else { contactButton.classList.add('black') }
+    if(offset >= top && offset < elementBottom) { 
+      if(offset < window.innerHeight * 2 + (window.innerHeight * 0.4) - 1) {
+        hash = element.getAttribute('id')
+        location.hash = hash
+      }
+      else {
+        if(element.nextElementSibling != null) {
+          hash = element.nextElementSibling.getAttribute('id')
+          location.hash = hash
+        }
+      }
+    }
+  })
+  
 }
 
-checkZone()
+checkZone(0)
 
-window.addEventListener('scroll', e => {
-  checkZone()
-  // changeZone()
-})
+// const fullPage = document.getElementById('page')
+// fullPage.addEventListener('scroll', e => {
+//   checkZone(e.target.scrollTop)
+// })
 
 const arrowDown = document.querySelector('#arrow-down')
 arrowDown.addEventListener('click', () => {
-  const positionAboutUs = document.querySelector('#ladrillo').offsetTop
-  window.scroll({
-    top: positionAboutUs,
-    behavior: 'smooth'
-  })
+  location.href = "#ladrillo"
   setTimeout(checkZone, 2000)
 })
 
 const processArrows = document.querySelectorAll('.arrow')
 Array.from(processArrows, arrow => {
   arrow.addEventListener('click', e => {
-    const allProcess = document.querySelectorAll('#process .proc')
-    const currentIndex = Array.from(allProcess).indexOf(document.querySelector('#process .active'))
+    const allProcess = document.querySelectorAll('#us .u')
+    const currentIndex = Array.from(allProcess).indexOf(document.querySelector('.active'))
     const currentProc = allProcess[currentIndex]
     const t = e.target
     if(t.classList.contains('prev') && currentIndex > 0) {
@@ -152,9 +157,24 @@ Array.from(processArrows, arrow => {
   })
 })
 
-const contactButton = document.getElementById('contact')
-contactButton.addEventListener('click', e => {
-  e.preventDefault()
-  const contactZone = document.getElementById('connect')
-  window.scroll({ top: contactZone.offsetTop, behavior: 'smooth' })
-})
+menu = () => {
+  const button = document.getElementById('menu')
+  button.addEventListener('click', e => {
+    const submenu = button.querySelector('.submenu')
+    console.log(submenu)
+    if(button.classList.contains('open')) {
+      button.classList.remove('open')
+      submenu.style.height = '0'
+      submenu.style.display = 'none'
+    }
+    else {
+      button.classList.add('open')
+      setTimeout(() => {
+        submenu.style.display = 'block'
+        submenu.style.height = 'auto'
+      }, 250)
+    }
+  })
+}
+
+menu()
