@@ -10,9 +10,10 @@ preloadingAnimations()
 
 const slidesAnimation = () => {
   const slides = document.getElementById('slides')
-  const fullBox = document.getElementById('full-box')
   const preLoading = document.getElementById('pre-loading')
   const page = document.getElementById('page')
+  const menu = document.getElementById('menu')
+  const contact = document.getElementById('contact')
   
   const text1 = slides.querySelector('.text1')
   const text2 = slides.querySelector('.text2')
@@ -32,21 +33,21 @@ const slidesAnimation = () => {
       text1.style.animation = 'textOut forwards 0.3s cubic-bezier(.5,.1,.5,.9)'
       text2.style.animation = 'textIn forwards 0.3s cubic-bezier(.5,.1,.5,.9)'
       image2.style.animation = 'imageIn forwards 0.3s cubic-bezier(.5,.1,.5,.9)'
-      slides.style.backgroundColor = '#fdfdfd'
+      slides.style.backgroundColor = '#478bd2'
       preLoading.style.display = 'none'
       setTimeout(() => {
         text2.style.animation = 'textOut forwards 0.3s cubic-bezier(.5,.1,.5,.9)'
         text3.style.animation = 'textIn forwards 0.3s cubic-bezier(.5,.1,.5,.9)'
         image3.style.animation = 'imageIn forwards 0.3s cubic-bezier(.5,.1,.5,.9)'
-        slides.style.backgroundColor = '#478bd2'
+        slides.style.backgroundColor = '#fdfdfd'
         setTimeout(() => {
-          page.style.display = 'block'
-          fullBox.style.top = '100%'
-          slides.style.top = '100%'
           image1.style.animation = 'imageOut forwards 0.3s cubic-bezier(.5,.1,.5,.9)'
           image2.style.animation = 'imageOut forwards 0.3s cubic-bezier(.5,.1,.5,.9)'
-          image3.style.animation = 'imageOut forwards 0.3s cubic-bezier(.5,.1,.5,.9)'
-          setTimeout(() => fullBox.style.display = 'none', 800)
+          page.style.transform = 'translateY(0)'
+          setTimeout(() => {
+            menu.style.transform = 'translateX(0)'
+            contact.style.opacity = '1'
+          }, 1200)
           bannersAnimation()
         }, 2000)
       }, 2000)
@@ -87,41 +88,33 @@ const bannersAnimation = () => {
 // Temporal
 // const page = document.getElementById('page')
 // const fullBox = document.getElementById('full-box')
-// fullBox.style.display = 'none'
-// page.style.display = 'block'
+// const menuB = document.getElementById('menu')
+// const contactB = document.getElementById('contact')
+// page.style.transform = 'translateY(0)'
+// menuB.style.transform = 'translateX(0)'
+// contactB.style.opacity = '1'
 // bannersAnimation()
 // Temporal
 
-const checkZone = (offset) => {
+setColorContactButton = (offset) => {
+  const page = document.getElementById('page')
+  const banners = page.querySelector('#banners').offsetTop
+  const ladrillo = page.querySelector('#ladrillo').offsetTop
+  const proc2 = page.querySelector('#proc2').offsetTop
 
-  const sections = document.querySelectorAll('.section')
-  Array.from(sections, (element, index) => {
-    const top = element.offsetTop
-    const elementBottom = top + element.clientHeight
-    let hash
-
-    if(offset >= top && offset < elementBottom) { 
-      if(offset < window.innerHeight * 2 + (window.innerHeight * 0.4) - 1) {
-        hash = element.getAttribute('id')
-        location.hash = hash
-      }
-      else {
-        if(element.nextElementSibling != null) {
-          hash = element.nextElementSibling.getAttribute('id')
-          location.hash = hash
-        }
-      }
-    }
-  })
-  
+  if(offset >= proc2 - 5) { document.querySelector('#contact').classList.remove('black') }
+  else if(offset >= ladrillo - 5) { document.querySelector('#contact').classList.add('black') }
+  else if(offset >= banners - 5) { document.querySelector('#contact').classList.remove('black') }
 }
 
-checkZone(0)
+setColorContactButton(0)
 
-// const fullPage = document.getElementById('page')
-// fullPage.addEventListener('scroll', e => {
-//   checkZone(e.target.scrollTop)
-// })
+const fullPage = document.getElementById('page')
+fullPage.addEventListener('scroll', e => {
+
+  setColorContactButton(e.target.scrollTop)
+  
+})
 
 const arrowDown = document.querySelector('#arrow-down')
 arrowDown.addEventListener('click', () => {
