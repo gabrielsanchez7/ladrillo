@@ -189,7 +189,7 @@ body {
       height: 190px;
     }
   }
-  @media screen and (orientation: landscape) and (max-height: 600px), (max-width: 500px) {
+  @media screen and (orientation: landscape) and (max-height: 800px), (max-width: 500px) {
     .image { max-width: 48px; }
     p { line-height: 40px; }
     .submenu {

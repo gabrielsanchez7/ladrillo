@@ -53,7 +53,7 @@ const slidesAnimation = () => {
   }, 2000)
 }
 
-if(window.innerWidth <= 600 || (screen.orientation.type.includes('landscape') && window.innerHeight <= 600) || screen.orientation.type.includes('portrait')) {
+if(screen.orientation.type.includes('landscape') && window.innerWidth >= 700) {
   preloadingAnimations()
   slidesAnimation()
 }
