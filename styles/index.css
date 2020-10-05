@@ -430,7 +430,6 @@ body {
   justify-content: center;
   max-width: 75vw;
   height: 100vh;
-  padding-bottom: 15vh;
 }
 #page #banners .message p {
   font-family: "Circular", sans-serif;
@@ -482,8 +481,8 @@ body {
 }
 #page #ladrillo > div .title {
   font-family: "Circular", sans-serif;
-  font-size: 13vw;
-  line-height: 12vw;
+  font-size: 12vw;
+  line-height: 10vw;
   margin-bottom: 20vh;
 }
 #page #ladrillo > div .image {
@@ -857,8 +856,8 @@ body {
 #page #proc1 .content > div h2, #page #proc2 .content > div h2, #page #proc3 .content > div h2, #page #proc4 .content > div h2 {
   color: white;
   font-size: 2.4vw;
-  font-family: "Circular", sans-serif;
-  font-weight: normal;
+  font-family: "Graphik", sans-serif;
+  font-weight: bold;
   margin-bottom: 3vh;
 }
 #page #proc1 .content > div p, #page #proc2 .content > div p, #page #proc3 .content > div p, #page #proc4 .content > div p {
@@ -965,7 +964,7 @@ body {
 #page #projects .content h2 {
   color: white;
   font-family: "Circular", sans-serif;
-  font-size: 13vw;
+  font-size: 12vw;
   font-weight: lighter;
 }
 #page #projects .content .image {

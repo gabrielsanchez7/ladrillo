@@ -352,7 +352,7 @@ body {
       justify-content: center;
       max-width: 75vw;
       height: 100vh;
-      padding-bottom: 15vh;
+      // padding-bottom: 15vh;
       p {
         font-family: $fontTitle;
         font-size: 3.2vw;
@@ -395,8 +395,8 @@ body {
       padding: 8vw 15px;
       .title {
         font-family: $fontTitle;
-        font-size: 13vw;
-        line-height: 12vw;
+        font-size: 12vw;
+        line-height: 10vw;
         margin-bottom: 20vh;
       }
       .image { display: none; }
@@ -715,8 +715,8 @@ body {
         h2 {
           color: white;
           font-size: 2.4vw;
-          font-family: $fontTitle;
-          font-weight: normal;
+          font-family: $fontRegular;
+          font-weight: bold;
           margin-bottom: 3vh;
         }
         p {
@@ -798,7 +798,7 @@ body {
       h2 {
         color: white;
         font-family: $fontTitle;
-        font-size: 13vw;
+        font-size: 12vw;
         font-weight: lighter;
       }
       .image { display: none; }
