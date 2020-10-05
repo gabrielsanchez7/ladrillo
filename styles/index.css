@@ -504,21 +504,19 @@ body {
   margin-top: 10px;
   font-size: 1.2vw;
 }
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 800px) {
   #page #ladrillo > div .title {
     font-size: 90px;
+    line-height: 70px;
   }
+}
+@media screen and (max-width: 1366px) {
   #page #ladrillo > div .mission strong {
     font-size: 14px;
   }
   #page #ladrillo > div .mission p {
     max-width: 50%;
     font-size: 18px;
-  }
-}
-@media screen and (max-width: 1024px) {
-  #page #ladrillo > div .title {
-    font-size: 90px;
   }
 }
 @media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px), (orientation: portrait) {

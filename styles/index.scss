@@ -415,8 +415,13 @@ body {
           font-size: 1.2vw;
         }
       }
+      @media screen and (max-width: 800px) {
+        .title {
+          font-size: 90px;
+          line-height: 70px;
+        }
+      }
       @media screen and (max-width: 1366px) {
-        .title { font-size: 90px; }
         .mission {
           strong { font-size: 14px; }
           p {
@@ -424,11 +429,6 @@ body {
             font-size: 18px;
           }
         }
-      }
-    }
-    @media screen and (max-width: 1024px) {
-      & > div {
-        .title { font-size: 90px; }
       }
     }
     @media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
