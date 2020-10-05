@@ -6,8 +6,6 @@ const preloadingAnimations = () => {
   setTimeout(() => textPreloading.style.animation = 'textPreloading forwards 0.7s', 950)
 }
 
-preloadingAnimations()
-
 const slidesAnimation = () => {
   const slides = document.getElementById('slides')
   const preLoading = document.getElementById('pre-loading')
@@ -55,7 +53,10 @@ const slidesAnimation = () => {
   }, 2000)
 }
 
-slidesAnimation()
+if(window.innerWidth <= 600 || (screen.orientation.type.includes('landscape') && window.innerHeight <= 600) || screen.orientation.type.includes('portrait')) {
+  preloadingAnimations()
+  slidesAnimation()
+}
 
 const bannersAnimation = () => {
 
@@ -85,16 +86,16 @@ const bannersAnimation = () => {
   
 }
 
-// Temporal
-// const page = document.getElementById('page')
-// const fullBox = document.getElementById('full-box')
-// const menuB = document.getElementById('menu')
-// const contactB = document.getElementById('contact')
-// page.style.transform = 'translateY(0)'
-// menuB.style.transform = 'translateX(0)'
-// contactB.style.opacity = '1'
-// bannersAnimation()
-// Temporal
+if(window.innerWidth <= 600 || (screen.orientation.type.includes('landscape') && window.innerHeight <= 600) || screen.orientation.type.includes('portrait')) {
+  const page = document.getElementById('page')
+  const menuB = document.getElementById('menu')
+  const contactB = document.getElementById('contact')
+  page.style.transform = 'translateY(0)'
+  page.style.transition = '0s'
+  menuB.style.transform = 'translateX(0)'
+  contactB.style.opacity = '1'
+  bannersAnimation()
+}
 
 setColorContactButton = (offset) => {
   const page = document.getElementById('page')
@@ -118,8 +119,7 @@ fullPage.addEventListener('scroll', e => {
 
 const arrowDown = document.querySelector('#arrow-down')
 arrowDown.addEventListener('click', () => {
-  location.href = "#ladrillo"
-  setTimeout(checkZone, 2000)
+  location.href = "#projects"
 })
 
 const processArrows = document.querySelectorAll('.arrow')

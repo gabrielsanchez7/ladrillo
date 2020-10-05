@@ -339,6 +339,11 @@ body {
   width: 100%;
   scroll-snap-align: start;
 }
+@media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px) {
+  #page .section {
+    scroll-snap-align: unset;
+  }
+}
 #page #banners {
   display: flex;
   align-items: center;
@@ -481,6 +486,9 @@ body {
   line-height: 12vw;
   margin-bottom: 20vh;
 }
+#page #ladrillo > div .image {
+  display: none;
+}
 #page #ladrillo > div .mission {
   margin-bottom: 20vh;
 }
@@ -513,7 +521,10 @@ body {
     font-size: 90px;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
+  #page #ladrillo {
+    background-image: unset;
+  }
   #page #ladrillo > div {
     padding-top: 20vh;
     padding-left: 0;
@@ -522,6 +533,16 @@ body {
   #page #ladrillo > div .title {
     font-size: 70px;
     line-height: 65px;
+    margin-bottom: 50px;
+  }
+  #page #ladrillo > div .image {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 50px;
+  }
+  #page #ladrillo > div .image img {
+    width: 100%;
   }
   #page #ladrillo > div .mission p {
     max-width: 80%;
@@ -532,6 +553,11 @@ body {
   display: flex;
   position: relative;
   overflow: hidden;
+}
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  #page #us {
+    height: calc(100vh + 25vh);
+  }
 }
 #page #us .arrow {
   position: absolute;
@@ -586,7 +612,7 @@ body {
   pointer-events: none;
   opacity: 0.6;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
   #page #us .arrow {
     top: 90%;
     height: 45px;
@@ -600,6 +626,12 @@ body {
   }
   #page #us .arrow.next {
     right: calc(50% - 50px);
+  }
+}
+@media screen and (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
+  #page #us .arrow {
+    top: unset;
+    bottom: 10%;
   }
 }
 #page #us .u {
@@ -670,7 +702,7 @@ body {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 5px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
   #page #us .u {
     max-width: 100%;
     padding: 0;
@@ -688,6 +720,17 @@ body {
   #page #us .u .content p {
     font-size: 14px;
     line-height: unset;
+  }
+}
+@media screen and (max-width: 600px) and (min-width: 700px), screen and (orientation: landscape) and (max-height: 600px) and (min-width: 700px), screen and (orientation: portrait) and (min-width: 700px) {
+  #page #us .u .content {
+    height: 50vh;
+  }
+  #page #us .u .content strong {
+    font-size: 26px;
+  }
+  #page #us .u .content p {
+    font-size: 16px;
   }
 }
 #page #process {
@@ -717,6 +760,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 #page #process .content > div h2 {
   font-family: "Circular", sans-serif;
@@ -754,6 +798,49 @@ body {
 #page #process .content > div a:active {
   transform: translateY(1px);
 }
+@media screen and (max-width: 600px), (orientation: portrait) {
+  #page #process .content > div {
+    width: 100%;
+    justify-content: unset;
+  }
+  #page #process .content > div h2 {
+    font-size: 70px;
+    line-height: unset;
+  }
+  #page #process .content > div p {
+    font-size: 18px;
+    text-align: center;
+  }
+  #page #process .content > div a {
+    padding: 0 35px;
+    line-height: 50px;
+    font-size: 10px;
+    top: 25px;
+    right: 25px;
+    border-radius: 30px;
+  }
+  #page #process .content img {
+    width: 100%;
+  }
+}
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  #page #process .content > div h2 {
+    font-size: 70px;
+    line-height: unset;
+  }
+  #page #process .content > div p {
+    font-size: 18px;
+    text-align: center;
+  }
+  #page #process .content > div a {
+    padding: 0 35px;
+    line-height: 50px;
+    font-size: 10px;
+    top: 25px;
+    right: 25px;
+    border-radius: 30px;
+  }
+}
 #page #proc1, #page #proc2, #page #proc3, #page #proc4 {
   min-height: 100vh;
   background: linear-gradient(-90deg, #0f0f0f 50%, #1a1a1a 100%);
@@ -787,17 +874,67 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+@media screen and (max-width: 600px), (orientation: portrait) {
+  #page #proc1, #page #proc2, #page #proc3, #page #proc4 {
+    flex-direction: column;
+  }
+  #page #proc1 .content, #page #proc2 .content, #page #proc3 .content, #page #proc4 .content {
+    height: 50vh;
+    width: 100%;
+  }
+  #page #proc1 .content > div, #page #proc2 .content > div, #page #proc3 .content > div, #page #proc4 .content > div {
+    width: 65%;
+  }
+  #page #proc1 .content > div h2, #page #proc2 .content > div h2, #page #proc3 .content > div h2, #page #proc4 .content > div h2 {
+    font-size: 26px;
+  }
+  #page #proc1 .content > div p, #page #proc2 .content > div p, #page #proc3 .content > div p, #page #proc4 .content > div p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 600px) and (min-width: 700px), screen and (orientation: portrait) and (min-width: 700px) {
+  #page #proc1 .content > div h2, #page #proc2 .content > div h2, #page #proc3 .content > div h2, #page #proc4 .content > div h2 {
+    font-size: 34px;
+  }
+  #page #proc1 .content > div p, #page #proc2 .content > div p, #page #proc3 .content > div p, #page #proc4 .content > div p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 600px), (orientation: portrait) {
+  #page #proc1 .image, #page #proc2 .image, #page #proc3 .image, #page #proc4 .image {
+    width: 100%;
+    height: 50vh;
+  }
+}
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  #page #proc1 .content > div h2, #page #proc2 .content > div h2, #page #proc3 .content > div h2, #page #proc4 .content > div h2 {
+    font-size: 26px;
+  }
+  #page #proc1 .content > div p, #page #proc2 .content > div p, #page #proc3 .content > div p, #page #proc4 .content > div p {
+    font-size: 14px;
+  }
+}
 #page #proc1 .image {
   background-image: url("../images/pr1.jpg");
 }
 #page #proc2 .image {
   background-image: url("../images/pr2.jpg");
 }
+@media screen and (max-width: 600px), (orientation: portrait) {
+  #page #proc2 .image {
+    order: 2;
+  }
+}
 #page #proc3 .image {
   background-image: url("../images/pr3.jpg");
 }
 #page #proc4 .image {
   background-image: url("../images/pr4.jpg");
+}
+@media screen and (max-width: 600px), (orientation: portrait) {
+  #page #proc4 .image {
+    order: 2;
+  }
 }
 #page #projects {
   min-height: 100vh;
@@ -843,7 +980,7 @@ body {
   line-height: 1.5vw;
   color: rgba(255, 255, 255, 0.5);
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
   #page #projects .content {
     padding: 0;
     background-image: unset;
@@ -912,13 +1049,14 @@ body {
   letter-spacing: 0.15vw;
   text-transform: uppercase;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
   #page #video {
     width: 100%;
   }
   #page #video .content {
     display: flex;
     flex-direction: column;
+    padding: 80px 0;
   }
   #page #video .content .flex {
     flex-direction: column;
@@ -1054,6 +1192,52 @@ body {
   cursor: pointer;
   display: flex;
   justify-content: center;
+}
+@media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
+  #page #connect .content h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  #page #connect .content > p {
+    max-width: unset;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  #page #connect .content .flex {
+    flex-direction: column;
+  }
+  #page #connect .content .flex form {
+    width: 100%;
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 80px;
+    padding-bottom: 80px;
+  }
+  #page #connect .content .flex form button {
+    padding: 0 35px;
+    line-height: 50px;
+    font-size: 10px;
+    top: 25px;
+    right: 25px;
+    border-radius: 30px;
+  }
+  #page #connect .content .flex > div {
+    padding-top: 0;
+    width: 100%;
+  }
+  #page #connect .content .flex > div p, #page #connect .content .flex > div a {
+    font-size: 14px;
+    line-height: 22px;
+    max-width: unset;
+  }
+  #page #connect .content .flex > div p {
+    margin-top: 0;
+  }
+  #page #connect .content .flex > div a {
+    justify-content: flex-start;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
