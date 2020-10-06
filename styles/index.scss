@@ -841,45 +841,147 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    .arrow {
+      position: absolute;
+      height: 3.5vw;
+      width: 3.5vw;
+      background-color: white;
+      border-radius: 50%;
+      z-index: 1;
+      border: none;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      outline: none;
+      bottom: 5%;
+      box-shadow: 0 0 1vw 0 rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: $fast;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.prev { right: 12%; }
+      &.next { right: 7%; }
+      i {
+        pointer-events: none;
+        font-size: 0.75vw;
+        transition: $fast;
+        opacity: 0.5;
+      }
+      @media (hover : hover) {
+        &:hover {
+          transform: scale(0.9);
+          i { opacity: 1; }
+          &.prev i { transform: translateX(-3px) scale(1.1); }
+          &.next i { transform: translateX(3px) scale(1.1); }
+        }
+      }
+      &:active {
+        transform: translateY(3px) scale(0.9);
+      }
+      &.disabled {
+        pointer-events: none;
+        opacity: 0.6;
+      }
+      @media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
+        top: 90%;
+        height: 45px;
+        width: 45px;
+        i { font-size: 16px; }
+        &.prev { left: calc(50% - 50px); }
+        &.next { right: calc(50% - 50px); }
+      }
+      @media screen and (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
+        top: unset;
+        bottom: 10%;
+      }
+    }
     .content {
       max-width: 70vw;
       width: 100%;
+      min-height: 100vh;
       color: white;
-      .flex {
-        video {
-          min-width: 60%;
-          margin-right: 5%;
-        }
+      position: relative;
+      overflow: hidden;
+      .project {
+        position: absolute;
+        width: 100%;
+        height: 100%;
         display: flex;
-        margin-bottom: 5vh;
-        & > div {
-          padding-top: 3vh;
-          p {
-            font-family: $fontTitle;
-            font-size: 1.5vw;
-            padding: 2vh 0;
-            border-bottom: 1px solid white;
+        flex-direction: column;
+        justify-content: center;
+        left: 110%;
+        transition: 0.4s cubic-bezier(.5,.1,.5,.9);
+        &.active { left: 0; }
+        &.pass { left: -110%; }
+        .flex {
+          .video {
+            min-width: 60%;
+            margin-right: 5%;
+            video { width: 100%; }
+            &.empty {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 19vh 5vw;
+              position: relative;
+              p {
+                font-size: 1.2vw;
+                text-align: center;
+              }
+              &::before, &::after {
+                content: "";
+                display: block;
+                width: 170px;
+                height: 170px;
+                position: absolute;
+                z-index: 0;
+                border-style: solid;
+                border-color: white;
+              }
+              &::before {
+                border-width: 4px 0 0 4px;
+                top: 0;
+                left: 0;
+              }
+              &::after {
+                border-width: 0 4px 4px 0;
+                bottom: 0;
+                right: 0;
+              }
+            }
+          }
+          display: flex;
+          margin-bottom: 5vh;
+          & > div:not(.video) {
+            padding-top: 3vh;
+            p {
+              font-family: $fontTitle;
+              font-size: 1.5vw;
+              padding: 2vh 0;
+              border-bottom: 1px solid white;
+            }
           }
         }
-      }
-      & > div:not(.flex) {
-        p:first-child {
-          font-family: $fontTitle;
-          font-size: 2vw;
-          padding-bottom: 1vh;
-          font-weight: bold;
-        }
-        p:last-child {
-          font-family: $fontTitle;
-          font-size: 0.8vw;
-          letter-spacing: 0.15vw;
-          text-transform: uppercase;
+        & > div:not(.flex) {
+          p:first-child {
+            font-family: $fontTitle;
+            font-size: 2vw;
+            padding-bottom: 1vh;
+            font-weight: bold;
+          }
+          p:last-child {
+            font-family: $fontTitle;
+            font-size: 0.8vw;
+            letter-spacing: 0.15vw;
+            text-transform: uppercase;
+          }
         }
       }
     }
     @media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
       width: 100%;
-      .content {
+      .content .project {
         display: flex;
         flex-direction: column;
         padding: 80px 0;

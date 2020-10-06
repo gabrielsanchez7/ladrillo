@@ -100,10 +100,14 @@ if(window.innerWidth <= 600 || (screen.orientation.type.includes('landscape') &&
 setColorContactButton = (offset) => {
   const page = document.getElementById('page')
   const banners = page.querySelector('#banners').offsetTop
+  const us = page.querySelector('#us').offsetTop
+  const process = page.querySelector('#process').offsetTop
   const ladrillo = page.querySelector('#ladrillo').offsetTop
   const proc2 = page.querySelector('#proc2').offsetTop
 
   if(offset >= proc2 - 5) { document.querySelector('#contact').classList.remove('black') }
+  else if(offset >= process - 5) { document.querySelector('#contact').classList.remove('black') }
+  else if(offset >= us - 5) { document.querySelector('#contact').classList.remove('black') }
   else if(offset >= ladrillo - 5) { document.querySelector('#contact').classList.add('black') }
   else if(offset >= banners - 5) { document.querySelector('#contact').classList.remove('black') }
 }
@@ -122,11 +126,39 @@ arrowDown.addEventListener('click', () => {
   location.href = "#projects"
 })
 
-const processArrows = document.querySelectorAll('.arrow')
+const videoArrows = document.querySelectorAll('#video .arrow')
+Array.from(videoArrows, arrow => {
+  arrow.addEventListener('click', e => {
+    const allProjects = document.querySelectorAll('#video .project')
+    const currentIndexV = Array.from(allProjects).indexOf(document.querySelector('#video .active'))
+    const currentProject = allProjects[currentIndexV]
+    const t2 = e.target
+    if(t2.classList.contains('prev') && currentIndexV > 0) {
+      currentProject.classList.remove('active')
+      currentProject.previousElementSibling.classList.remove('pass')
+      currentProject.previousElementSibling.classList.add('active')
+      videoArrows[1].classList.remove('disabled')
+      if(currentIndexV == 1) {
+        videoArrows[0].classList.add('disabled')
+      }
+    }
+    else if(t2.classList.contains('next') && currentIndexV < allProjects.length - 1) {
+      currentProject.classList.remove('active')
+      currentProject.classList.add('pass')
+      currentProject.nextElementSibling.classList.add('active')
+      videoArrows[0].classList.remove('disabled')
+      if(currentIndexV == allProjects.length - 2) {
+        videoArrows[1].classList.add('disabled')
+      }
+    }
+  })
+})
+
+const processArrows = document.querySelectorAll('#us .arrow')
 Array.from(processArrows, arrow => {
   arrow.addEventListener('click', e => {
     const allProcess = document.querySelectorAll('#us .u')
-    const currentIndex = Array.from(allProcess).indexOf(document.querySelector('.active'))
+    const currentIndex = Array.from(allProcess).indexOf(document.querySelector('#us .active'))
     const currentProc = allProcess[currentIndex]
     const t = e.target
     if(t.classList.contains('prev') && currentIndex > 0) {
