@@ -103,10 +103,10 @@ setColorContactButton = (offset) => {
   const us = page.querySelector('#us').offsetTop
   const process = page.querySelector('#process').offsetTop
   const ladrillo = page.querySelector('#ladrillo').offsetTop
-  const proc2 = page.querySelector('#proc2').offsetTop
+  const proc1 = page.querySelector('#proc1').offsetTop
 
-  if(offset >= proc2 - 5) { document.querySelector('#contact').classList.remove('black') }
-  else if(offset >= process - 5) { document.querySelector('#contact').classList.remove('black') }
+  if(offset >= proc1 - 5) { document.querySelector('#contact').classList.remove('black') }
+  else if(offset >= process - 5) { document.querySelector('#contact').classList.add('black') }
   else if(offset >= us - 5) { document.querySelector('#contact').classList.remove('black') }
   else if(offset >= ladrillo - 5) { document.querySelector('#contact').classList.add('black') }
   else if(offset >= banners - 5) { document.querySelector('#contact').classList.remove('black') }
@@ -186,7 +186,6 @@ menu = () => {
   const button = document.getElementById('menu')
   button.addEventListener('click', e => {
     const submenu = button.querySelector('.submenu')
-    console.log(submenu)
     if(button.classList.contains('open')) {
       button.classList.remove('open')
       submenu.style.height = '0'

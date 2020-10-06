@@ -1084,7 +1084,7 @@ body {
 @media screen and (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
   #page #video .arrow {
     top: unset;
-    bottom: 10%;
+    bottom: 5%;
   }
 }
 #page #video .content {
@@ -1130,7 +1130,7 @@ body {
   position: relative;
 }
 #page #video .content .project .flex .video.empty p {
-  font-size: 1.2vw;
+  font-size: 2.2vw;
   text-align: center;
 }
 #page #video .content .project .flex .video.empty::before, #page #video .content .project .flex .video.empty::after {
@@ -1174,6 +1174,11 @@ body {
   letter-spacing: 0.15vw;
   text-transform: uppercase;
 }
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  #page #video .content {
+    min-height: 170vh;
+  }
+}
 @media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
   #page #video {
     width: 100%;
@@ -1188,18 +1193,35 @@ body {
     order: 2;
     margin-top: 30px;
   }
-  #page #video .content .project .flex video {
+  #page #video .content .project .flex .video {
     width: 100%;
     margin-right: unset;
   }
-  #page #video .content .project .flex > div p {
+  #page #video .content .project .flex .video.empty {
+    padding: 7vh 5vw;
+  }
+  #page #video .content .project .flex .video.empty p {
+    font-size: 14px;
+  }
+  #page #video .content .project .flex .video.empty::before, #page #video .content .project .flex .video.empty::after {
+    border-width: 3px;
+    height: 60px;
+    width: 60px;
+  }
+  #page #video .content .project .flex .video.empty::before {
+    border-width: 2px 0 0 2px;
+  }
+  #page #video .content .project .flex .video.empty::after {
+    border-width: 0 2px 2px 0;
+  }
+  #page #video .content .project .flex > div:not(.video) p {
     font-size: 18px;
   }
   #page #video .content .project > div:not(.flex) p:first-child {
     font-size: 20px;
   }
   #page #video .content .project > div:not(.flex) p:last-child {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 #page #connect {

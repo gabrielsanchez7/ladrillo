@@ -893,7 +893,7 @@ body {
       }
       @media screen and (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
         top: unset;
-        bottom: 10%;
+        bottom: 5%;
       }
     }
     .content {
@@ -926,7 +926,7 @@ body {
               padding: 19vh 5vw;
               position: relative;
               p {
-                font-size: 1.2vw;
+                font-size: 2.2vw;
                 text-align: center;
               }
               &::before, &::after {
@@ -979,25 +979,41 @@ body {
         }
       }
     }
+    @media screen and (orientation: landscape) and (max-height: 600px) {
+      .content { min-height: 170vh; }
+    }
     @media screen and (max-width: 600px), (orientation: landscape) and (max-height: 600px), (orientation: portrait) {
       width: 100%;
-      .content .project {
-        display: flex;
-        flex-direction: column;
-        padding: 80px 0;
-        .flex {
+      .content {
+        .project {
+          display: flex;
           flex-direction: column;
-          order: 2;
-          margin-top: 30px;
-          video {
-            width: 100%;
-            margin-right: unset;
+          padding: 80px 0;
+          .flex {
+            flex-direction: column;
+            order: 2;
+            margin-top: 30px;
+            .video {
+              width: 100%;
+              margin-right: unset;
+              &.empty {
+                padding: 7vh 5vw;
+                p { font-size: 14px; }
+                &::before, &::after {
+                  border-width: 3px;
+                  height: 60px;
+                  width: 60px;
+                }
+                &::before { border-width: 2px 0 0 2px; }
+                &::after { border-width: 0 2px 2px 0; }
+              }
+            }
+            & > div:not(.video) p { font-size: 18px; }
           }
-          & > div p { font-size: 18px; }
-        }
-        & > div:not(.flex) {
-          p:first-child { font-size: 20px; }
-          p:last-child { font-size: 16px; }
+          & > div:not(.flex) {
+            p:first-child { font-size: 20px; }
+            p:last-child { font-size: 14px; }
+          }
         }
       }
     }
